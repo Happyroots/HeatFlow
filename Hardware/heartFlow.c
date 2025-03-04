@@ -93,10 +93,10 @@ void display1(){ // half blink
 void display2(){ // blink
     P0 = P1 = P2 = P3 = 0x00; // 0101 0101
     P4 = 0x00;
-		Delay50ms();
+		Delay20ms();
     P0 = P1 = P2 = P3 = 0xFF; // 1010 1010
     P4 = 0xFF;
-		Delay50ms();
+		Delay20ms();
 }
 void display3(){ // light one for circle
    
@@ -544,14 +544,14 @@ void display18(){ //  light a quter
 	P0 = P1 = P2 = P3 = P4 = 0xFF;
 	P0 = 0x00;   Delay100ms(); 
 	P0 = 0xFF;  P2 = 0x00; P4 = 0x00;  Delay50ms();  
-	P2 = 0xFF;  P3 = 0x00;   Delay50ms();  
+	P2 = 0xFF;  P4 = 0xFF; P3 = 0x00;   Delay50ms();  
 	P3 = 0xFF;  P1 = 0x00;   Delay50ms();  
 }
 
 void display19(){ //  light sigle side  twice
 		P0 = P1 = P2 = P3 = P4 = 0xFF;
 	    
-		P4 = 0x00;  Delay50ms();
+		P4 = 0x00;  Delay40ms();
 		
     P2 &= ~(1 << 0);	Delay20ms();
 	  P2 &= ~(1 << 1);	Delay20ms();
@@ -560,7 +560,7 @@ void display19(){ //  light sigle side  twice
 	  P2 &= ~(1 << 4);	Delay20ms();
 	  P2 &= ~(1 << 5);	Delay20ms();
 	  P2 &= ~(1 << 6);	Delay20ms();
-	  P2 &= ~(1 << 7);	Delay50ms();
+	  P2 &= ~(1 << 7);	Delay40ms();
 	  
 		P0 &= ~(1 << 7);  Delay20ms();
 		P0 &= ~(1 << 6);  Delay20ms();
@@ -569,7 +569,7 @@ void display19(){ //  light sigle side  twice
 		P0 &= ~(1 << 3);  Delay20ms();
 		P0 &= ~(1 << 2);  Delay20ms();
 		P0 &= ~(1 << 1);  Delay20ms();
-		P0 &= ~(1 << 0);  Delay50ms();
+		P0 &= ~(1 << 0);  Delay40ms();
 
 		P3 &= ~(1 << 7);	Delay20ms();
 		P3 &= ~(1 << 6);	Delay20ms();
@@ -578,7 +578,7 @@ void display19(){ //  light sigle side  twice
 		P3 &= ~(1 << 3);	Delay20ms();
 		P3 &= ~(1 << 2);	Delay20ms();
 		P3 &= ~(1 << 1);	Delay20ms();
-		P3 &= ~(1 << 0);	Delay50ms();
+		P3 &= ~(1 << 0);	Delay40ms();
 		
 		P1 &= ~(1 << 7); 	Delay20ms();
 		P1 &= ~(1 << 6); 	Delay20ms();
@@ -587,7 +587,7 @@ void display19(){ //  light sigle side  twice
 		P1 &= ~(1 << 3); 	Delay20ms();
 		P1 &= ~(1 << 2); 	Delay20ms();
 		P1 &= ~(1 << 1); 	Delay20ms();
-		P1 &= ~(1 << 0); 	Delay50ms();
+		P1 &= ~(1 << 0); 	Delay40ms();
 		
 
 }
@@ -602,7 +602,7 @@ void display20(){ //  light sigle side  twice
 		P0 &= ~(1 << 4);  Delay20ms();
 		P0 &= ~(1 << 5);  Delay20ms();
 		P0 &= ~(1 << 6);  Delay20ms();
-		P0 &= ~(1 << 7);  Delay50ms();
+		P0 &= ~(1 << 7);  Delay40ms();
 	
     P2 &= ~(1 << 7);	Delay20ms();
 	  P2 &= ~(1 << 6);	Delay20ms();
@@ -612,7 +612,7 @@ void display20(){ //  light sigle side  twice
 	  P2 &= ~(1 << 2);	Delay20ms();
 	  P2 &= ~(1 << 1);	Delay20ms();
 	  P2 &= ~(1 << 0);	Delay20ms();
-		P4 = 0x00;  Delay50ms();
+		P4 = 0x00;  Delay40ms();
 	  
 		P1 &= ~(1 << 0); 	Delay20ms();
 		P1 &= ~(1 << 1); 	Delay20ms();
@@ -621,7 +621,7 @@ void display20(){ //  light sigle side  twice
 		P1 &= ~(1 << 4); 	Delay20ms();
 		P1 &= ~(1 << 5); 	Delay20ms();
 		P1 &= ~(1 << 6); 	Delay20ms();
-		P1 &= ~(1 << 7); 	Delay50ms();
+		P1 &= ~(1 << 7); 	Delay40ms();
 
 		P3 &= ~(1 << 0);	Delay20ms();
 		P3 &= ~(1 << 1);	Delay20ms();
@@ -631,7 +631,7 @@ void display20(){ //  light sigle side  twice
 		P3 &= ~(1 << 5);	Delay20ms();
 		P3 &= ~(1 << 6);	Delay20ms();
 		P3 &= ~(1 << 7);	Delay20ms();			
-		Delay50ms();
+		Delay40ms();
 
 }
 
@@ -647,14 +647,12 @@ void main()
 			for(i = 0; i < 20; i ++){
 				display1();// half blink
 			}
-			for(i = 0; i < 2; i ++){
+			for(i = 0; i < 20; i ++){
 				display2();//blink
 			}
 			display3(); // light one for circle
 			display4(); // light from middle
-			for(i = 0; i < 3; i ++){
-				display5();//breath
-			}
+
 			
 			display6(); //light from both
 			display7(); //light from left middle
@@ -666,7 +664,7 @@ void main()
 				display5();//breath
 			}
 			
-			for(i = 0; i < 5; i ++){	
+			for(i = 0; i < 3; i ++){	
 				display8();  // light like horse
 			}
 			
@@ -683,16 +681,20 @@ void main()
 			for(i = 0; i < 20; i ++){
 				display1();// half blink
 			}
-			for(i = 0; i < 1; i ++){
-				display5();//breath
-			}
+
 			display14(); // light quter
 			for(i = 0; i < 3; i ++){
 				display15(); // light quter asyn
 			}
-			display16(); // blink B half and T half
-			display17(); // blink B L half and T R half
-			display18(); //  light a quter
+			for(i = 0; i < 3; i ++){
+				display16(); // blink B half and T half
+			}
+			for(i = 0; i < 3; i ++){
+				display17(); // blink B L half and T R half
+			}
+			for(i = 0; i < 3; i ++){
+				display18(); //  light a quter
+			}
 			display19(); //  light sigle side  twice
 			display20(); //  light sigle side  twice
     }
