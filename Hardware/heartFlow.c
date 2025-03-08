@@ -425,7 +425,8 @@ void display13(){ // light half
 
 
 void display14(){ // light quter
-	
+		P0 = P1 = P2 = P3 = P4 = 0xFF;
+
 
 		P1 &= ~(1 << 0);  Delay20ms();
 		P1 &= ~(1 << 1);  Delay20ms();
